@@ -506,20 +506,23 @@ const logSkyColor = () => {
 };
 
 console.log(color); // throws a ReferenceError
+
 ```
 
-Scope refers to where variables can be accessed throughout the program, and is determined by where and how they are declared.
+```javascript
+const famousSayings = [ 
+  ['Fortune favors the brave.', 8 ],
+  ['A joke is a very serious thing.' , 9 ],
+  ['HJikpoe', 9] ];
 
-Blocks are statementsthat exist within curly braces {}.    
 
-Global scope refers to the context within which variables are accessible to every part of the program.
+// Access elements in the 2D array
+const firstRow = famousSayings[0]; // First sub-array
+const firstRowFirstElement = famousSayings[0][0]; // 'Fortune favors the brave.'
+const secondRowSecondElement = famousSayings[1][1]; // 9
 
-Global variables are variables that exist within global scope.
+console.log(firstRow); // ['Fortune favors the brave.', 8]
+console.log(firstRowFirstElement); // 'Fortune favors the brave.'
+console.log(secondRowSecondElement); // 9
+```
 
-Block scope refers to the context within which variables are accessible only within the block they are defined.
-
-Local variables are variables that exist within block scope.
-
-Global namespace is the space in our code that contains globally scoped information.
-
-Scope pollution is when too many variables exist in a namespace or variable names are reused.
