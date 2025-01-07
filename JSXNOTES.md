@@ -524,5 +524,10 @@ const secondRowSecondElement = famousSayings[1][1]; // 9
 console.log(firstRow); // ['Fortune favors the brave.', 8]
 console.log(firstRowFirstElement); // 'Fortune favors the brave.'
 console.log(secondRowSecondElement); // 9
+
+all array functions
+
+
 ```
+[Codecademy JavaScript Arrays Documentation](https://www.codecademy.com/resources/docs/javascript/arrays)
 
