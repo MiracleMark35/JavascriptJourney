@@ -2,7 +2,8 @@
 ![Notes 1](Notes%201.png)
 ![Notes2](Notes2.png)
 ![lec](lec.png)
-
+![Images/arrow funmction](Images/arrow funmction.png)
+![Images/Sinkle line](Images/Sinkle line.png)
 
 ## Real Go
 ### Counter
