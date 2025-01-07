@@ -2,8 +2,8 @@
 ![Notes 1](Notes%201.png)
 ![Notes2](Notes2.png)
 ![lec](lec.png)
-![Images/arrow funmction](Images/arrow funmction.png)
-![Images/Sinkle line](Images/Sinkle line.png)
+
+
 
 ## Real Go
 ### Counter
@@ -487,3 +487,9 @@ export function getVolume(radius){
     return 4 * PI * radius * radius;
 }
 ```
+
+### arrow FUNCTIONS
+![Arrow Function](Images/arrow%20funmction.png)
+![Single Line](Images/Sinkle%20line.png)
+
+
