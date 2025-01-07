@@ -492,4 +492,18 @@ export function getVolume(radius){
 ![Arrow Function](Images/arrow%20funmction.png)
 ![Single Line](Images/Sinkle%20line.png)
 
+### SCOPE VARIABLE 
 
+```javascript
+const logSkyColor = () => {
+  const dusk = true;
+  let color = 'blue'; 
+  if (dusk) {
+    let color = 'pink';
+    console.log(color); // Prints "pink"
+  }
+  console.log(color); // Prints "blue"
+};
+
+console.log(color); // throws a ReferenceError
+```
