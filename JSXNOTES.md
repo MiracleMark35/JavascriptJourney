@@ -688,4 +688,71 @@ spaceship.passengers[0].MINE = "MY belongings";
 const firstPassenger = spaceship.passengers[0];
 
 ```
+### Pass By Reference
+```javascript
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth'
+};
+
+const greenEnergy =  obj => {
+obj['Fuel Type'] = 'avocado oil';
+}
+
+const remotelyDisable = obj => {
+ obj.disabled = true;
+}
+greenEnergy(spaceship);
+remotelyDisable(spaceship);
+console.log(spaceship);
+
+
+Output-only Terminal
+Output:
+{ 'Fuel Type': 'avocado oil',
+  homePlanet: 'Earth',
+  disabled: true }
+
+```
+
+### Looping Through Objects
+```javascript
+let spaceship = {
+    crew: {
+    captain: { 
+        name: 'Lily', 
+        degree: 'Computer Engineering', 
+        cheerTeam() { console.log('You got this!') } 
+        },
+    'chief officer': { 
+        name: 'Dan', 
+        degree: 'Aerospace Engineering', 
+        agree() { console.log('I agree, captain!') } 
+        },
+    medic: { 
+        name: 'Clementine', 
+        degree: 'Physics', 
+        announce() { console.log(`Jets on!`) } },
+    translator: {
+        name: 'Shauna', 
+        degree: 'Conservation Science', 
+        powerFuel() { console.log('The tank is full!') } 
+        }
+    }
+}; 
+
+// Write your code below
+
+for (let crewMember in spaceship.crew) {
+  console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`)
+};
+
+for( let baka in spaceship.crew ){
+  console.log(`${baka}: ${spaceship.crew[baka].degree}`)
+}
+```
+### Reviw in Objects
+
+![Reviw](Images/Screenshot%202025-01-11%20175712.png)
+
 
