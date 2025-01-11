@@ -624,3 +624,24 @@ nums.some(num => num < 0);
 
 ![Example of Object](Images/Screenshot%202025-01-11%20160210.png)
 
+```javascript
+// An object literal with two key-value pairs
+let spaceship = {
+  'Fuel Type': 'diesel',
+  color: 'silver'
+};
+```
+### ASSIGNING AND DELETING 
+```javascript
+const spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth',
+  color: 'silver',
+  'Secret Mission' : 'Discover life outside of Earth.'
+};
+spaceship.color = 'glorious gold';
+spaceship.numEngines = 9;
+delete spaceship['Secret Mission'];
+
+  console.log(spaceship)
+```
