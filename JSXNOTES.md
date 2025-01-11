@@ -618,5 +618,5 @@ nums.some(num => num < 0);
 
 
 ```
-
+![REVIEW ITERATORS](Images/Screenshot%202025-01-11%20154343.png)
 
