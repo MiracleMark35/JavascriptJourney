@@ -531,3 +531,92 @@ all array functions
 ```
 [Codecademy JavaScript Arrays Documentation](https://www.codecademy.com/resources/docs/javascript/arrays)
 
+Iterators In JAVA SCRIPT
+
+```javascript
+const jumbledNums = [123, 25, 78, 5, 9]; 
+
+const lessThanTen = jumbledNums.findIndex(num => {
+  return num < 10;
+});
+ //Preview: Docs Returns the first index that passes the callback function's test. Returns -1 if no element passes the test. .findIndex()
+
+ //on an array will return the index of the first element that evaluates to true in the callback function.
+
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+// Iterate over fruits below
+fruits.forEach( baka => {
+console.log(`I want to eat a ${baka}`);
+});
+
+//When  Preview: Docs Loading link description .map()
+
+ //is called on an array, it takes an argument of a callback function and returns a new array!
+
+const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+
+// Create the secretMessage array below
+
+const  secretMessage = animals.map(baka => {
+return baka[0];
+});
+
+//T he .filter() array method creates a new array with all elements that pass the test from the provided function.
+
+const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+
+const shortWords = words.filter(word => {
+  return word.length < 6;
+});
+
+
+const numbers = [1, 2, 4, 10];
+
+const summedNums = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+})
+
+console.log(summedNums) // Output: 17
+
+// The .reduce() method combines each element of an array, using a specified reducer function, and returns a single value.
+
+
+const numbers = [1, 2, 4, 10];
+
+const summedNums = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+}, 100)  // <- Second argument for .reduce()
+
+console.log(summedNums); // Output: 117
+
+
+// ALL TEST
+
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+
+//  Choose a method that will return undefined
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+
+// Choose a method that will return a new array
+const longCities = cities.filter(city => city.length > 7);
+
+// Choose a method that will return a single value
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+
+console.log(word)
+
+// Choose a method that will return a new array
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+nums.some(num => num < 0);
+
+
+```
+
+
