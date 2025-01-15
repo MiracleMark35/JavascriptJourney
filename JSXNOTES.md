@@ -895,4 +895,61 @@ const tinCan = robotFactory('P-500' , true);
 tinCan.beep();
 //Beep Boop
 ```
+### Destructured Assignment
+
+```javascript
+const vampire = {
+  name: 'Dracula',
+  residence: 'Transylvania',
+  preferences: {
+    day: 'stay inside',
+    night: 'satisfy appetite'
+  }
+};
+//If we wanted to extract the residence property as a variable, we could use the following code:
+const residence = vampire.residence; 
+console.log(residence); // Prints 'Transylvania' 
+
+
+//destructured assignment to save ourselves some keystrokes.
+
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+
+//We can even use destructured assignment to grab nested properties of an object:
+
+const { day } = vampire.preferences; 
+console.log(day); // Prints 'stay inside'
+
+```
+
+
+### Built-in Object Methods
+
+
+```javascript 
+const robot = {
+	model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+// What is missing in the following method call?
+const robotKeys = Object.keys(robot);
+
+console.log(robotKeys);
+
+// Declare robotEntries below this line:
+const robotEntries = Object.entries(robot);
+
+console.log(robotEntries);
+
+// Declare newRobot below this line:
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true} , robot);
+
+console.log(newRobot);
+```
+![Review ADVANCE OBLJECTS](Images/Screenshot%202025-01-15%20142750.png)
 
