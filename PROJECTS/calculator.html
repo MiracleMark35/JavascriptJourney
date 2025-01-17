@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator </title>
+    <link rel="stylesheet" href="calcustyle.css">
+    
+</head>
+<body>
 
+    <div id="calculator"> 
+        <input id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDiplay('+')" >+</button>
+            <button onclick="appendToDiplay('7')">7</button>
+            <button onclick="appendToDiplay('8')">8</button>
+            <button onclick="appendToDiplay('9')">9</button>
+            <button onclick="appendToDiplay('-')">-</button>
+            <button onclick="appendToDiplay('4')">4</button>
+            <button onclick="appendToDiplay('5')">5</button>
+            <button onclick="appendToDiplay('6')">6</button>
+            <button onclick="appendToDiplay('*')">*</button>
+            <button onclick="appendToDiplay('1')">1</button>
+            <button onclick="appendToDiplay('2')">2</button>
+            <button onclick="appendToDiplay('3')">3</button>
+            <button onclick="appendToDiplay('/')">/</button>
+            <button onclick="appendToDiplay('0')">0</button>
+            <button onclick="appendToDiplay('.')">.</button>
+            <button onclick="Calculate()">=</button>
+            <button onclick="Cleare()">C</button>
+            
+        </div>
+    </div>
+
+
+    <script src="calcuScript.js"></script>
+</body>
+
+</html>
