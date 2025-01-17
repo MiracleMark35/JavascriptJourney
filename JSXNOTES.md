@@ -1,7 +1,7 @@
 
-![Notes 1](Notes%201.png)
-![Notes2](Notes2.png)
-![lec](lec.png)
+![Notes 1](Images/Notes%201.png)
+![Notes2](Images/Notes2.png)
+![lec](Images/lec.png)
 
 
 ## Real Go
