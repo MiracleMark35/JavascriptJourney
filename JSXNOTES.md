@@ -4,7 +4,6 @@
 ![lec](Images/lec.png)
 
 
-## Real Go
 ### Counter
 ```javascript
 const reset = document.getElementById("reset");
