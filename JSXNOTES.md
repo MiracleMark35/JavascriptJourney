@@ -1176,3 +1176,11 @@ tyson.generateName(); // TypeError
 
 ![REVIEW CLASEES](Images/Screenshot%202025-01-18%20204347.png)
 
+
+
+[Implementing Modules in Node.js - Codecademy](https://www.codecademy.com/courses/learn-intermediate-javascript/articles/implementing-modules-in-node)
+### EXPORTING A MODULE
+![export](Images/Screenshot%202025-01-18%20205757.png)
+### REQUIRE()
+![Require](Images/Screenshot%202025-01-18%20205717.png)
+
