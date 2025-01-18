@@ -861,6 +861,36 @@ console.log(robot._energyLevel)
 
 ```
 
+
+### Setters and Getters 
+```javascript
+class Person {
+  constructor(firstName, lastName) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+  }
+
+  // Getter for the full name
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  }
+
+  // Setter for the full name
+  set fullName(name) {
+    const parts = name.split(" ");
+    this._firstName = parts[0]; // First word
+    this._lastName = parts[1] || ""; // Second word or empty string
+  }
+}
+
+const person = new Person("Spongebob", "Squarepants");
+
+console.log(person.fullName); // Spongebob Squarepants
+
+person.fullName = "Patrick Star"; // Using the setter
+console.log(person.fullName); // Patrick Star
+
+```
 ### Factory Functions
 
 ```javascript
@@ -981,4 +1011,169 @@ halley.incrementBehavior(); // Add one to behavior
 console.log(halley.name); // Print name value to console
 console.log(halley.behavior); // Print behavior value to console
 ```
+
+
+### Instance
+```javascript
+An instance is an object that contains the property names and 
+Preview: Docs Methods are object properties that contain functions.
+methods
+ of a class, but with unique property values.
+
+class Dog {
+  constructor(name) {
+    this.name = name;
+    this.behavior = 0;
+  } 
+}
+
+const halley = new Dog('Halley'); // Create new Dog instance
+console.log(halley.name); // Log the name value saved to halley
+// Output: 'Halley'
+
+```
+
+### Inheritance 
+
+![Inherentance](Images/Screenshot%202025-01-18%20195712.png)
+```javascript
+In the example above, the Animal class contains the properties and methods that the Cat and Dog classes share (name, behavior, .incrementBehavior()).
+
+The diagram to the right shows the relationships we want to create between the Animal, Cat, and Dog classes.
+```
+```javascript
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }
+    
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+}
+
+const bryceCat = new Cat('Bryce', false); 
+console.log(bryceCat._name); // output: Bryce
+
+
+// do this
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  get name() {
+    return this._name;
+  }
+  
+  get behavior() {
+    return this._behavior;
+  }
+    
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+
+
+
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);  // super() calls the parent class constructor and allows the child class to inherit and initialize the properties of the parent class.
+    this._usesLitter = usesLitter;
+  }
+}
+
+
+```
+
+### FINAL INHERETANCE
+```javascript
+class HospitalEmployee {
+  constructor(name) {
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  }
+
+  get certifications (){
+    return  this._certifications ;
+  }
+
+  addCertification (newCertification){
+    this._certifications.push(newCertification);
+  }
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+nurseOlynyk.addCertification('Genetics');
+console.log(nurseOlynyk.certifications)
+```
+
+### Static Methods 
+```javascript
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+    
+  static generateName() {
+    const names = ['Angel', 'Spike', 'Buffy', 'Willow', 'Tara'];
+    const randomNumber = Math.floor(Math.random()*5);
+    return names[randomNumber];
+  }
+}
+
+//EXAMPLE 1
+
+console.log(Animal.generateName()); // returns a name
+
+//EXAMPLE 2
+const tyson = new Animal('Tyson'); 
+tyson.generateName(); // TypeError
+
+
+```
+### Review: Classes
+
+![REVIEW CLASEES](Images/Screenshot%202025-01-18%20204347.png)
 
