@@ -1185,3 +1185,6 @@ tyson.generateName(); // TypeError
 ![Require](Images/Screenshot%202025-01-18%20205717.png)
 ### Object Destructuring
 ![DES](Images/Screenshot%202025-01-19%20174854.png)
+
+
+![export sYTANX](Images\image.png)
