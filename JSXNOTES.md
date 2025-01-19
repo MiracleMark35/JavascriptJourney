@@ -1187,4 +1187,4 @@ tyson.generateName(); // TypeError
 ![DES](Images/Screenshot%202025-01-19%20174854.png)
 
 
-![export sYTANX](Images\image.png)
+![Export](Images/image.png)
