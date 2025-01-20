@@ -1188,3 +1188,117 @@ tyson.generateName(); // TypeError
 
 
 ![Export](Images/image.png)
+
+![DEfault 1](Images/Screenshot%202025-01-20%20105315.png)
+![Deafult 2](Images/Screenshot%202025-01-20%20105325.png)
+### Promise
+![Promise](Images/Screenshot%202025-01-20%20111133.png)
+### setTimeout 
+```javascript
+
+console.log("This is the first line of code in app.js.");
+// Keep the line above as the first line of code
+// Write your code here:
+
+const usingSTO = () => {
+   return console.log('This is a mIIDLE.');
+}
+
+setTimeout(usingSTO, 2500);  // LAST STRING
+
+
+// Keep the line below as the last line of code:
+console.log("This is the last line of code in app.js.");
+```
+
+### Chaining Multiple Promises
+
+```javascript
+const {checkInventory, processPayment, shipOrder} = require('./library.js');
+
+const order = {
+  items: [['sunglasses', 1], ['bags', 2]],
+  giftcardBalance: 79.82
+};
+
+checkInventory(order)
+.then((resolvedValueArray) => {
+  // Write the correct return statement here:
+   return processPayment(resolvedValueArray);
+}) 
+.then((resolvedValueArray) => {
+  // Write the correct return statement here:
+  return shipOrder(resolvedValueArray);
+})
+.then((successMessage) => {
+  console.log(successMessage);
+})
+.catch((errorMessage) => {
+  console.log(errorMessage);
+});
+
+```
+
+### Promise.all()
+
+```javascript
+// Import the `checkAvailability` function from the library.js file
+const {checkAvailability} = require('./library.js');
+
+// Define a callback function to handle the fulfillment (successful resolution) of the promises
+const onFulfill = (itemsArray) => {
+  // Log the items that were checked and their availability status
+  console.log(`Items checked: ${itemsArray}`);
+  // Log a message indicating that all items were available and the order is being placed
+  console.log(`Every item was available from the distributor. Placing order now.`);
+};
+
+// Define a callback function to handle the rejection (failure) of any of the promises
+const onReject = (rejectionReason) => {
+  // Log the rejection reason if any of the promises fail (e.g., an item is not available)
+  console.log(rejectionReason);
+};
+
+// Call `checkAvailability` to check if the 'sunglasses' are available from 'Favorite Supply Co.'
+const checkSunglasses = checkAvailability('sunglasses', 'Favorite Supply Co.');
+
+// Call `checkAvailability` to check if the 'pants' are available from 'Favorite Supply Co.'
+const checkPants = checkAvailability('pants', 'Favorite Supply Co.');
+
+// Call `checkAvailability` to check if the 'bags' are available from 'Favorite Supply Co.'
+const checkBags = checkAvailability('bags', 'Favorite Supply Co.');
+
+// Use `Promise.all` to wait for all the availability checks (promises) to resolve or reject
+// `Promise.all` takes an array of promises and returns a single promise that resolves when all of the input promises resolve
+Promise.all([checkSunglasses, checkPants, checkBags])
+  // When all promises are resolved, the `onFulfill` callback is called with the resolved values (itemsArray)
+  .then(onFulfill)
+  // If any of the promises reject, the `onReject` callback is called with the rejection reason
+  .catch(onReject);
+
+const checkAvailability = (itemName, distributorName) => {
+    console.log(`Checking availability of ${itemName} at ${distributorName}...`);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (restockSuccess()) {
+                console.log(`${itemName} are in stock at ${distributorName}`)
+                resolve(itemName);
+            } else {
+                reject(`Error: ${itemName} is unavailable from ${distributorName} at this time.`);
+            }
+        }, 1000);
+    });
+};
+
+module.exports = { checkAvailability };
+
+
+// This is a function that returns true 80% of the time
+// We're using it to simulate a request to the distributor being successful this often
+function restockSuccess() {
+    return (Math.random() > .2);
+}
+```
+
+
+![REVIEW JavaScript Promises](Images/Screenshot%202025-01-20%20125730.png)
