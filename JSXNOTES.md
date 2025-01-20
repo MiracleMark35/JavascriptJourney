@@ -1302,3 +1302,5 @@ function restockSuccess() {
 
 
 ![REVIEW JavaScript Promises](Images/Screenshot%202025-01-20%20125730.png)
+
+![event Loop](Images/Screenshot%202025-01-20%20190605.png)
