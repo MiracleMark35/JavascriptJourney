@@ -1304,3 +1304,177 @@ function restockSuccess() {
 ![REVIEW JavaScript Promises](Images/Screenshot%202025-01-20%20125730.png)
 
 ![event Loop](Images/Screenshot%202025-01-20%20190605.png)
+
+
+### The async Keyword
+
+The async keyword is used to write functions that handle asynchronous actions. 
+
+We wrap our asynchronous logic inside a function prepended with the async keyword.
+```javascript
+function withConstructor(num){
+  return new Promise((resolve, reject) => {
+    if (num === 0){
+      resolve('zero');
+    } else {
+      resolve('not zero');
+    }
+  });
+}
+
+withConstructor(0)
+  .then((resolveValue) => {
+  console.log(` withConstructor(0) returned a promise which resolved to: ${resolveValue}.`);
+});
+
+const withAsync = async (num) => {
+  if(num == 0){
+    return 'zero';
+  }else{
+    return 'not zero';
+  }
+}
+
+withAsync(100)
+  .then((resolveValue) => {
+  console.log(` withAsync(100) returned a promise which resolved to: ${resolveValue}.`);
+})
+```
+
+### The await Operator
+
+```javascript
+const shopForBeans = require('./library.js');
+
+async function getBeans() {
+  console.log(`1. Heading to the store to buy beans...`);
+  let value = await shopForBeans();
+  console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
+}
+
+getBeans();
+
+
+```
+### Handling Dependent Promises
+```javascript
+
+
+ we would need to wait to make the network request until we had the results from the database. With native promise syntax, we use a chain of 
+.then() making sure to return correctly each one:
+
+
+function nativePromiseVersion() {
+  returnsFirstPromise()
+    .then((firstValue) => {
+      console.log(firstValue);
+      return returnsSecondPromise(firstValue);
+    })
+   .then((secondValue) => {
+      console.log(secondValue);
+    });
+}
+
+
+
+Here’s how we’d write an async function to accomplish the same thing:
+
+
+async function asyncAwaitVersion() {
+  let firstValue = await returnsFirstPromise();
+  console.log(firstValue);
+  let secondValue = await returnsSecondPromise(firstValue);
+  console.log(secondValue);
+}
+
+
+
+```
+
+
+### Handling Errors
+```javascript
+async function usingTryCatch() {
+ try {
+   let resolveValue = await asyncFunction('thing that will fail');
+   let secondValue = await secondAsyncFunction(resolveValue);
+ } catch (err) {
+   // Catches any errors in the try block
+   console.log(err);
+ }
+}
+
+usingTryCatch();
+
+//EXAMPLE 
+const cookBeanSouffle = require('./library.js');
+
+This time we’ve required in a function, cookBeanSouffle() which returns a promise that resolves or rejects randomly.
+When it resolves, the promise resolves with a value of 'Bean Souffle' and,
+when it rejects, it rejects with a value of 'Dinner is ruined!'. 
+
+// Write your code below:
+const hostDinnerParty = async () => {
+  try{
+    let value = await cookBeanSouffle();
+    console.log(`${value} is served!`)
+  }catch(error){
+    console.log(error)
+    console.log('Ordering a pizza!')
+  }
+}
+
+hostDinnerParty()
+
+
+```
+### Handling Independent Promises
+
+
+```javascript
+async function waiting() {
+ const firstValue = await firstAsyncThing();
+ const secondValue = await secondAsyncThing();
+ console.log(firstValue, secondValue);
+}
+
+async function concurrent() {
+ const firstPromise = firstAsyncThing();
+ const secondPromise = secondAsyncThing();
+console.log(await firstPromise, await secondPromise);
+}
+```
+### Await Promise.all()
+Another way to take advantage of concurrency when we have multiple promises which can be executed simultaneously is to await a Promise.all().
+
+We can pass an array of promises as the argument to Promise.all(), and it will return a single promise
+
+
+Promise is an object that can be used to get the outcome of an asynchronous operation when that result is not instantly available.
+
+
+```javascript
+let {cookBeans, steamBroccoli, cookRice, bakeChicken} = require('./library.js');
+
+// Write your code below:
+
+const serveDinnerAgain = async () => {
+  const foodArray = await Promise.all([ steamBroccoli(), cookRice(), bakeChicken(),  cookBeans() ]);
+
+let vegetable = foodArray[0];
+let starch =  foodArray[1];
+let protein =  foodArray[2];
+let side =  foodArray[3];
+  
+console.log(`Dinner is served. We're having ${vegetable}, ${starch}, ${protein}, and ${side}.`);
+
+
+}
+ serveDinnerAgain();
+
+```
+
+### REVIEW Async Await
+![REVIEW](Images/Screenshot%202025-02-28%20151712.png)
+
+
