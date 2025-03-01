@@ -1530,7 +1530,7 @@ A second .then() method will run after the previous .then() method has finished 
 ```
 ### what is CRUD 
 
-![CRUD](https://www.codecademy.com/article/what-is-crud)
+[CRUD](https://www.codecademy.com/article/what-is-crud)
 
 ### Handling a GET Request
 
