@@ -1477,4 +1477,105 @@ console.log(`Dinner is served. We're having ${vegetable}, ${starch}, ${protein},
 ### REVIEW Async Await
 ![REVIEW](Images/Screenshot%202025-02-28%20151712.png)
 
+### What is HTTP?
 
+
+HTTP stands for Hypertext Transfer Protocol and is used to structure requests and responses over the internet. 
+
+HTTP requires data to be transferred from one point to another over the network.
+
+ TCP manages the channels between your browser and the server (in this case, codecademy.com). 
+ 
+ TCP is used to manage many types of internet connections in which one computer or device wants to send something to another. 
+ 
+ HTTP is the command language that the devices on both sides of the connection must follow in order to communicate.
+
+### HTTP Verbs
+There are 4 basic HTTP verbs we use in requests to interact with resources in a REST system:
+
+GET — retrieve a specific resource (by id) or a collection of resources
+
+POST — create a new resource
+
+PUT — update a specific resource (by id)
+
+DELETE — remove a specific resource by id
+
+### Intro to GET Requests using Fetch
+
+The fetch() function:
+
+Creates a request object that contains relevant information that an API needs.
+
+Sends that request object to the API endpoint provided.
+
+Returns a promise that ultimately resolves to a response object, which contains the status of the promise with information the API sent back.
+
+![](Images/Screenshot%202025-03-01%20172009.png)
+
+
+
+```javascript
+The .then() method is chained at the end of the fetch() function and in its first argument, the response of the GET request is passed to the callback arrow function. The .then() method will fire only after the promise status of fetch() has been resolved., response.ok will be true and the code will return response.json().
+
+If response.ok is a falsy value, our code will throw an error.
+
+throw new Error('Request failed!');
+
+
+A second argument passed to .then() will be another arrow function that will be triggered when the promise is rejected. It takes a single parameter, networkError. This object logs the networkError if we could not reach the endpoint at all (e.g., the server is down).
+
+A second .then() method will run after the previous .then() method has finished running without error. It takes jsonResponse, which contains the returned response.json() object from the previous .then() method, as its parameter and can now be handled, however we may choose.
+
+```
+### what is CRUD 
+
+![CRUD](https://www.codecademy.com/article/what-is-crud)
+
+### Handling a GET Request
+
+```javascript
+// Information to reach API
+const url = 'https://api.datamuse.com/words?sl=';
+
+// Selects page elements
+const inputField = document.querySelector('#input');
+const submit = document.querySelector('#submit');
+const responseField = document.querySelector('#responseField');
+
+// Asynchronous function
+const getSuggestions = () => {
+  const wordQuery = inputField.value;
+  const endpoint = `${url}${wordQuery}`;
+  
+  fetch(endpoint, {cache: 'no-cache'}).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error('Request failed!');
+  }, networkError => {
+    console.log(networkError.message)
+  }).then(jsonResponse => {
+     //renderRawResponse(jsonResponse);
+    renderResponse(jsonResponse);
+  })
+}
+  
+// Clears previous results and display results to webpage
+const displaySuggestions = (event) => {
+  event.preventDefault();
+  while(responseField.firstChild){
+    responseField.removeChild(responseField.firstChild);
+  }
+  getSuggestions();
+};
+
+submit.addEventListener('click', displaySuggestions);
+
+```
+### Intro to POST Requests using Fetch
+
+ fetch() call takes two arguments: an endpoint and an object that contains information needed for the POST request.
+
+
+![POST](Images/Screenshot%202025-03-01%20182856.png)
