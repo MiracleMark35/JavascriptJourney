@@ -1528,6 +1528,22 @@ A second argument passed to .then() will be another arrow function that will be 
 A second .then() method will run after the previous .then() method has finished running without error. It takes jsonResponse, which contains the returned response.json() object from the previous .then() method, as its parameter and can now be handled, however we may choose.
 
 ```
+### BEtter and more understandble
+
+``` javascript
+fetch('link')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Request Failed: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(jsonResponse => {
+    // Handle successful JSON response
+  })
+  .catch(error => console.log(error.message)); // Catches both HTTP & network errors
+```
+
 ### what is CRUD 
 
 [CRUD](https://www.codecademy.com/article/what-is-crud)
