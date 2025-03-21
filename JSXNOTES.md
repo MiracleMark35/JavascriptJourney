@@ -1589,6 +1589,18 @@ const displaySuggestions = (event) => {
 submit.addEventListener('click', displaySuggestions);
 
 ```
+### REST 
+
+REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other. 
+
+This means that the code on the client side can be changed at any time without affecting the operation of the server
+
+and the code on the server side can be changed without affecting the operation of the client.
+
+### Response Codes
+
+![REsponse COdes](Images/Screenshot%202025-03-21%20191337.png)
+
 ### Intro to POST Requests using Fetch
 
  fetch() call takes two arguments: an endpoint and an object that contains information needed for the POST request.
