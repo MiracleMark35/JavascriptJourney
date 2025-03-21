@@ -1607,3 +1607,18 @@ and the code on the server side can be changed without affecting the operation o
 
 
 ![POST](Images/Screenshot%202025-03-01%20182856.png)
+
+### SImple Version
+```javascript
+fetch('http://api-to-call.com/endpoint', { 
+  method: 'POST', 
+  body: JSON.stringify({ id: '200' }) 
+})
+  .then(response => {
+    if (response.ok) return response.json(); // If success, convert to JSON
+    throw new Error('Request failed'); // If error, throw an error
+  })
+  .then(data => console.log(data)) // Handle success
+  .catch(error => console.error(error)); // Handle errors
+
+```
