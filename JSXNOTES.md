@@ -1622,3 +1622,65 @@ fetch('http://api-to-call.com/endpoint', {
   .catch(error => console.error(error)); // Handle errors
 
 ```
+### Intro to async GET Requests
+
+![SYNC](Images/Screenshot%202025-03-21%20201411.png)
+
+The async keyword is used to declare an async function that returns a promise
+
+The await keyword can only be used within an async function. await suspends the program while waiting for a promise to resolve.
+
+In a try...catch statement, code in the try block will be run and in the event of an exception, the code in the catch statement will run.
+
+### Intro to async POST Requests
+
+![POST ASYNC](Images/Screenshot%202025-03-21%20202735.png)
+
+```javascript
+// information to reach API
+const apiKey = 'Rebrandly';
+const url = 'https://api.rebrandly.com/v1/links';
+
+// Some page elements
+const inputField = document.querySelector('#input');
+const shortenButton = document.querySelector('#shorten');
+const responseField = document.querySelector('#responseField');
+
+// Asynchronous functions
+const shortenUrl = async () => {
+	const urlToShorten = inputField.value;
+  const data = JSON.stringify({destination: urlToShorten});
+  try {
+    const response = await fetch(
+    url , {method: 'POST', 
+    body: data,
+    'headers': { 
+     'Content-type': 'application/json',
+     'apikey': apiKey
+    }
+    }
+    );
+		if(response.ok){
+      const jsonResponse = await response.json();
+      renderResponse(jsonResponse);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Clear page and call Asynchronous functions
+const displayShortUrl = (event) => {
+  event.preventDefault();
+  while(responseField.firstChild){
+    responseField.removeChild(responseField.firstChild);
+  }
+  shortenUrl();
+}
+
+shortenButton.addEventListener('click', displayShortUrl);
+
+```
+
+### Requests with Fetch API
+![Review](Images/Screenshot%202025-03-21%20203824.png)
