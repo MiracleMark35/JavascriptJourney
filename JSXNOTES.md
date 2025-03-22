@@ -1881,3 +1881,8 @@ JavaScript variables and objects that are currently in use are stored in the hea
 
 The stack, or call stack, tracks what function is currently being run in your code.
 
+### Introduction to Memory Management in JavaScript
+
+### Debugging Memory Issues in JavaScript
+
+[LINK](https://www.youtube.com/watch?v=hliOMEQRqf8)
