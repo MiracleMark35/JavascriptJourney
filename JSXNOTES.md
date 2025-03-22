@@ -1684,3 +1684,200 @@ shortenButton.addEventListener('click', displayShortUrl);
 
 ### Requests with Fetch API
 ![Review](Images/Screenshot%202025-03-21%20203824.png)
+
+### Error Stack Traces
+
+![eror](Images/Screenshot%202025-03-22%20154054.png)
+
+```javascript
+Based on the following error stack trace, fill in the answers to the questions below:
+
+------------------------------------------------------------------
+
+/home/ccuser/workspace/learn-javascript-debugging-code/script.js:5
+if (numberSum > total;) {
+                     ^
+            
+SyntaxError: Unexpected token ;
+
+------------------------------------------------------------------
+
+From what file was this error thrown?
+1 - Answer: script.js
+On what line of that file was this error thrown?
+2 - Answer: 5
+What type of error was thrown in this stack trace?
+3 - Answer: SyntaxError
+What is the description of the error in this stack trace?
+4 - Answer: Unexpected token
+
+```
+
+### JavaScript Error Types
+
+
+ReferenceError: This error will be thrown if you try to use a variable that does not exist. 
+
+When this error is thrown, make sure all  are properly declared.
+
+TypeError: This error will be thrown if you attempt to perform an operation on a value of the wrong type. 
+
+For example, if we tried to use a string method on a number, it would throw a TypeError.
+
+### DOcumentation
+
+Whenever you want to know more about how JavaScript works and what it can do, 
+
+the best place to go is documentation. 
+
+You can find the JavaScript documentation at the MDN JavaScript web docs.
+
+[MDM JAvascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+### STack OverFLow
+
+Stack Overflow is a question and answer forum where frustrated programmers post issues and other programmers discuss and vote for solutions. 
+
+Almost always if you have an issue, Stack Overflow has an answer.
+
+
+
+```javascript
+function isStringPerfectLength(string, minLength, maxLength) {
+  const stringLength = string.length;
+  
+  if (stringLength < minLength) {
+    return false;
+  } else if (stringLength > maxLength) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// Should return true
+console.log("isStringPerfectLength('Dog', 2, 4) returns: " + isStringPerfectLength('Dog', 2, 4));
+
+// Should return false
+console.log("isStringPerfectLength('Mouse', 2, 4) returns: " + isStringPerfectLength('Mouse', 2, 4));
+
+// Should return false
+console.log("isStringPerfectLength('Cat', 4, 9) returns: " + isStringPerfectLength('Cat', 4, 9));
+```
+
+### Constructing an Error
+
+```javascript
+throw new MAinErrorr('Messagee')
+console.log(MainErrorr) // prints error
+
+console.log(Error('Your password is too weak.'));
+// Prints: Error: Your password is too weak.
+
+```
+### The throw Keyword 
+
+Creating an error doesn’t cause our program to stop — remember, an error must be thrown for it to halt the program.
+
+
+```javascript
+//When we use the throw keyword, the error is thrown and code after the throw statement will not execute. Take for example:
+
+throw Error('Something wrong happened');
+// Error: Something wrong happened
+
+console.log('This will never run');
+```
+
+### The try...catch Statement
+
+```javascript
+try {
+  throw Error('This error will get caught');
+} catch (e) {
+  console.log(e);
+}
+// Prints: This error will get caught
+
+console.log('The thrown error that was caught in the try...catch statement!');
+// Prints: 'The thrown error that was caught in the try...catch statement!'
+
+
+Inside the try block we insert code that we anticipate might throw an error. 
+
+Since we want to see what happens if an error is thrown in the try block,
+we throw an error with the message 'This error will get caught'.
+
+Following the try block is the catch statement which accepts the thrown error from the try block . The e represents the thrown error.
+
+The curly braces that follow catch(e) is known as the catch block and contains code that executes to handle the error.
+
+Since the error is caught, our console.log() after the try...catch statement prints
+'The thrown error that was caught in the try...catch statement!'.
+```
+
+
+### Handling with try...catch
+
+```javascript
+//function has a try
+
+ function capAllElements(arr){
+   try{
+	arr.forEach((el, index, array) => {
+    array[index] = el.toUpperCase();
+  });
+   } catch(e){
+  console.log(e)
+}
+   }
+ 
+
+capAllElements('Incorrect argument');
+```
+### Error Handling Review
+
+![ReviewEroorHandling](Images/Screenshot%202025-03-22%20171921.png)
+
+### Currying in JavaScript
+
+Currying  a functional programming technique we can use to write code that is modular, easy to test, and highly reusable
+
+```javascript
+function makeGreeting(string) {
+//Write your code here
+ return function hello(string2){
+  return string + string2;
+ }
+
+ 
+}
+ let hello = makeGreeting('Hello');
+  let helloWorld = hello('World');
+ console.log(helloWorld);
+
+//output "HelloWorld"
+```
+
+### Concurrency Model and Event Loop in JavaScript
+
+We have data structures that we call the heap and the call stack, 
+
+which are part of the JavaScript engine. 
+
+The heap and call stack interact with Node and Web APIs, 
+
+which pass messages back to the stack via an event queue.
+
+![EventLOOP](Images/JavaScript-Engine-Diagram.png)
+
+### The Heap
+
+The heap is a block of memory where we store objects in an unordered manner. 
+
+JavaScript variables and objects that are currently in use are stored in the heap.
+
+## The Call Stack
+
+The stack, or call stack, tracks what function is currently being run in your code.
+
