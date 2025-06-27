@@ -1,7 +1,7 @@
 
-![Notes 1](Images/CodeAcademy/Notes%201.png)
-![Notes2](Images/Notes2.png)
-![lec](Images/lec.png)
+![Notes 1](Images/cd../Notes%201.png)
+![Notes2](Images/cd%20../Notes2.png)
+![lec](Images/../lec.png)
 
 
 ### Counter
