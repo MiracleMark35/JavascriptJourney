@@ -11,3 +11,9 @@ Bots
 Webscraping
 Web Servers
 
+# Project Side
+
+# npm init
+Creates a package.json file in your folder.
+# Why is it important?
+Keeps track of dependencies
