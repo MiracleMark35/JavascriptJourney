@@ -11,7 +11,6 @@ import {updateSearchCount,getTrendingMovies } from '../appwrite'
 // to talk with each other 
 import TrendingCard from "./components/TrendingCard"
 const App = () => {
-//  VITE_ApiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MTdhMWY3OTJlZjlmODJmNmU2MTBjM2U0Mzg5MzczNyIsIm5iZiI6MTc1NDczNTQ2NC43MzksInN1YiI6IjY4OTcyMzY4NWUxMGQ2MzEwNGM0YjYzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ssy9nv_8ncrK8lExIzTKsLYClWKjcQxp-EhjeFILIBM';
 const ApiURL = import.meta.env.VITE_API_URL; // this is the base url of the API
 const ApiKey = import.meta.env.VITE_API_KEY
 
