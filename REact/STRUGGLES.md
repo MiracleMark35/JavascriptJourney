@@ -4,6 +4,9 @@
 ```javascript
 names.map((name, index) => (...))
 ```
+
+
+Needs A Key Each
 It loops over each name in names
 For each item:
 name = the current name in the array (e.g., 'JOHN', 'JANE', 'DOE')
