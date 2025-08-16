@@ -68,3 +68,11 @@ click → runs when you click something.
 keydown → runs when a key is pressed.
 
 transitionend → runs when a CSS animation finished
+
+New concepts today:
+- data-* attributes
+- <kbd> tag
+- querySelector / querySelectorAll
+- addEventListener
+- transitionend event
+- classList.add/remove
