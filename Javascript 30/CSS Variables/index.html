@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+    <label for="blur">Blur:</label>                                    <!-- data- * is a made up-->
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="base">Base Color</label>
+    <input id="base" type="color" name="base" value="#ffc600">
+  </div>
+
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXlCZfVYNuMWeZk4jbnGpYwH_yQtFBpPDbgw&s" >
+
+  <style>
+
+    img {
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+    }
+
+
+    :root { /*Default Values */
+        --base: #ffc600;
+        --spacing: 10px;
+        --blur: 10px;
+
+    }
+
+    .hl{
+        color: var(--base);
+    }
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+
+  <script>      // querySelector returns A Node List not an array
+    
+    const inputs = document.querySelectorAll('.controls input')
+    // Arrow functions don’t have their own this. 
+    // So arrow functions do not work
+
+    function handleUpdate () { // dataset is the sotrage of your  made-up datas
+        const suffix = this.dataset.sizing || '';  // || '' = fallback for inputs without data-sizing.
+        console.log(this.value)
+      //  console.log(this.name)
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+    }                           //this.name → the name attribute of the input (spacing, blur, base).
+                                // this.value → the slider value or color value.
+                                // suffix = 'px' || ''
+    // forEach =  It takes a function and runs it once for every item in the list.
+
+    inputs.forEach( input =>  input.addEventListener('change', handleUpdate) )
+    // This is an arrow function where:
+    // input = the current element in the loop.
+    // So inputs is like:
+    // [ <input id="spacing">, <input id="blur">, <input id="base"> ]
+
+    // input.addEventListener('change', handleUpdate) → attaches an event listener to that input.
+    // So for each input, you’re saying:
+
+    // “When this input’s value changes, call handleUpdate.”
+
+    inputs.forEach( input => {input.addEventListener('mousemove', handleUpdate)})
+  </script>
+
+</body>
+</html>
