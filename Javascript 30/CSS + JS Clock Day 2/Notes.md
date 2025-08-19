@@ -154,4 +154,4 @@ transform-origin = defines the pivot point of rotation.
 
 translateY(-3px) = little adjustment for centering.
 
-cubic-bezier = makes the movement feel less robotic.
+cubic-bezier = makes the movement feel less robotic and more Cleaner
