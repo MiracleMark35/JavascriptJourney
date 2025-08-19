@@ -145,13 +145,12 @@ transition: all 0.05s; → Smooth animation when updating.
 
 transition-timing-function: cubic-bezier(...) → Gives the motion a bit of bounce/natural feel.
 
-
 # ⚡ So to summarize:
 
 relative + absolute = parent/child positioning system.
 
 transform-origin = defines the pivot point of rotation.
-
+  
 translateY(-3px) = little adjustment for centering.
 
 cubic-bezier = makes the movement feel less robotic and more Cleaner
