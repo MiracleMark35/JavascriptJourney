@@ -39,9 +39,10 @@
     // Array.prototype.filter()
     // The filter() method in JavaScript is a built-in array method that creates a new array containing only the elements from the original array that 
     // satisfy a specified condition. It does not modify the original array. 
-    // 1. Filter the list of inventors for those who were born in the 1500's
-            const fifteen = inventors.filter( (inventor) => inventor.year > 1500 && inventor.year < 1600 ? true : false)
-            console.table(fifteen)
+    // 1. Filter the list of inventors for those who were born in the 1500's                // rebundant
+    const fifteen = inventors.filter( inventor => inventor.year >= 1500 && inventor.year )  //  <= 1600 ? true: false)
+
+    console.table(fifteen)
 
 
 
@@ -56,8 +57,14 @@
     //.sort() compares two items at a time.
 
     // 3. Sort the inventors by birthdate, oldest to youngest
-    const Sorted = inventors.sort( (a, b) => a.year > b.year ? 1 : -1)
-    // 👉 That means smaller years come first, so it’s ascending (oldest → youngest).
+    const Sorted = inventors.sort( (a, b) => a.year - b.year)
+                                                              // rebundant  ? 1 : -1
+    //If result is negative, a comes before b (meaning a was born earlier).
+    // If result is positive, b comes before a.
+
+    // so if i want to reverse it 
+    // const Sorted = inventors.sort((a, b) => b.year - a.year);
+
     console.table(Sorted)
 
 
