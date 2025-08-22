@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪💪</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    // Some and Every Checks
+    // Array.prototype.some() // is at least one person 19 or older?
+const currentYear = new Date().getFullYear();
+const someNineteen = people.some(person => currentYear - person.year >= 19);
+console.log({someNineteen});
+    // Array.prototype.every() // is everyone 19 or older?
+const everyoneNineteen = people.every( (person) => {
+    return (new Date().getFullYear()) - person.year >= 19;
+})
+console.log(everyoneNineteen)
+    // Array.prototype.find() will return the first item it finds
+    // Find is like filter, but instead returns just the one you are looking for
+    // find the comment with the ID of 823423
+
+// const find = comments.find( comment => {
+//     return comment.id = 823423;
+// })
+const comment = comments.find( (comment) =>  // so paramenters make a big diference {   }
+    comment.id === 823423
+);
+
+console.log(comment)
+    // Array.prototype.findIndex()
+
+const index = comments.findIndex( comment => comment.id === 823423 )
+
+ // delete comments[index] Bad Way
+ // comments.splice('index, 1'); Good way
+
+// The first parameter (0) defines the position where new elements should be added (spliced in).
+
+// The second parameter (1) defines how many elements should be removed.
+
+//console.table(comments)
+
+const newComments = [ // best way to remove an index is to re assign a new array
+    ...comments.slice(0, index), // you’ll end up with a nested array: if u dont need ...
+    ...comments.slice(index + 1)
+];
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
+ console.table(newComments)
+ console.table(comments)
+    //A NodeList comes from document.querySelectorAll(...) and looks like an array but isn’t.
+    // Here, comments is a plain JavaScript array of objects.
+
+    //document.querySelector(...) → returns one DOM element object (not array, not NodeList).
+
+    // document.querySelectorAll(...) → returns a NodeList (array-like object).
+  </script>
+</body>
+</html>

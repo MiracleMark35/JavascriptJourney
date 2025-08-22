@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title> Ajax</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </header>
+    <body>
+        
+        <form class="search-form">
+            <input type="text" class="search" placeholder="City or State">
+            <ul class="suggestions">
+                <li>Filter for a city</li>
+                <li>or a state</li>
+            </ul>
+        </form>
+
+    </body>
+    <script>
+        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    // first of all we need an empty array to store the data
+
+        const cities = [];
+        // fetch returns a promise
+        // then after the fetch is resolved
+                                        
+         // fetch( endpoint).then( blob => console.log(blob)) this will make the whole endpoint the html, image etc
+                                        //result.json returns another promise
+         fetch(endpoint)
+         .then( result => result.json()) 
+         // .then( data => console.log(data)) // the array of cities
+        // .then( data => data.forEach(element => {
+         //   cities.push(element)
+         //}))
+         .then(data => cities.push(...data)) // spread the data then push it into the empty array
+         
+
+         function findMatches ( wordsToMatch,cities) {
+            
+            return cities.filter( place => {
+                // here we need to figure out if the city or state matches what was searced
+                // then put a variable into a regular expression?
+                                //The RegExp object is used for matching text with a pattern.
+                const regex = new RegExp(wordsToMatch, 'gi')
+                return place.city.match(regex) || place.state.match(regex)
+            });
+         }
+
+         // the we create the display function
+        function displayMatches(){
+    // Find cities/states that match user input
+    const matchArray = findMatches(this.value , cities)
+
+    // Convert each result into HTML list items
+    const html = matchArray.map( element => {
+        // Build regex from the current input
+        const regex = new RegExp(this.value , 'gi')
+
+        // Highlight the matching text in city/state names
+        const cityName = element.city.replace(regex , `<span class="hl">${this.value}</span>`)
+        const StateName = element.state.replace(regex , `<span class="hl">${this.value}</span>`)
+
+        // Return HTML string for each list item
+        return `
+            <li>
+            <span class="name">${cityName}, ${StateName}</span>
+            <span class="population">${element.population}</span>
+            </li>`;
+    }).join('') // Combine all <li> strings into one big HTML string
+
+    // Insert into <ul class="suggestions">
+    suggestions.innerHTML = html;
+    }
+
+
+        const searchInput = document.querySelector('.search')
+        const suggestions = document.querySelector('.suggestions')
+        
+        searchInput.addEventListener('change', displayMatches)
+        searchInput.addEventListener('keyup', displayMatches)
+
+    </script>
+</html>
