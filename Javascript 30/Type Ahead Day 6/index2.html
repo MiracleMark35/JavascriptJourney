@@ -18,50 +18,58 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-
-const cities = [];
-
+const cities = [] // create an empty array to store it
 fetch(endpoint)
-.then( data => data.json())
-.then( place =>  cities.push(...place))
+.then(result => result.json()) // make it a json object because the data we returning is not json 
+.then(data => cities.push(...data)) //we push individual array into it
 
 
-function  wordsToMatch( Words, cities) {
 
 
-    return cities.filter( place => {
-        const regex = new RegExp(Words, 'gi')
+function findMatches(wordsToMatch, cities){
+  // make a regex with gi
+  // then return a filter 
+  // to a match array
 
-        return place.city.match(regex) || place.state.match(regex);
-    });
-}
 
-function display () {
+  return cities.filter(place => {
+      const regex = new RegExp(wordsToMatch, 'gi')
 
-    const matchArray = wordsToMatch(this.value, cities);
+    return place.city.match(regex) || place.state.match(regex)
+  })
 
-    const html = matchArray.map( element => {
-    const regex = new RegExp(this.value, 'gi')
-
-    const cityName = element.city.replace(regex, `<span class="hl">${this.value}</span>`)
-    const stateName = element.state.replace(regex, `<span class="hl">${this.value}</span>`)
-
-    return `<li>
-        <span class="name">${cityName}, ${stateName}</span>
-        <span class="population">${element.population}</span>
-    </li>`
-    }).join('');
-
-   suggestions.innerHTML = html
 }
 
 
-const searchText = document.querySelector('.search')
-const suggestions = document.querySelector('.suggestions')
+function display(){
+  const matchArray = findMatches(this.value, cities)
+ 
+  const html = matchArray.map( element => {
+ // we need to check each one
+ // do this make a regex to highlight the words searched
 
-searchText.addEventListener('change', display)
-searchText.addEventListener('keyup', display)
+ const regex = new RegExp ( this.value, 'gi')
+// make a const variable to hl                                    this.value is the searched words
+ const cityName = element.city.replace(regex, `<span class="hl">${this.value}</span>`)
+ const StateName = element.state.replace(regex, `<span class="hl">${this.value}</span>`)
 
+  // return an html like suggestions
+ return`    
+ <li>
+  <span class="name">${cityName} , ${StateName}</span>
+  <span>${element.population}</span>
+  </li>`; 
+  }).join('')
+
+  suggestion.innerHTML = html;
+
+}
+
+const inputSearch = document.querySelector('.search')
+const suggestion = document.querySelector('.suggestions')
+
+inputSearch.addEventListener('change', display)
+inputSearch.addEventListener('keyup', display)
 </script>
 </body>
 </html>

@@ -83,3 +83,8 @@ keyup → runs every time you release a key (live search as you type).
 keyup = for instant live results.
 
 change = catches the case where you finish typing then leave the input.
+
+
+# Mistakes
+Forget the element.cities instead of the city
+forgot to  Move the template literal to the same line as return:
