@@ -40,7 +40,7 @@
             return cities.filter( place => {
                 // here we need to figure out if the city or state matches what was searced
                 // then put a variable into a regular expression?
-                                //The RegExp object is used for matching text with a pattern.
+                //The RegExp object is used for matching text with a pattern.
                 const regex = new RegExp(wordsToMatch, 'gi')
                 return place.city.match(regex) || place.state.match(regex)
             });
@@ -62,10 +62,11 @@
 
         // Return HTML string for each list item
         return `
-            <li>
+        <li>
             <span class="name">${cityName}, ${StateName}</span>
             <span class="population">${element.population}</span>
-            </li>`;
+        </li>
+        `;
     }).join('') // Combine all <li> strings into one big HTML string
 
     // Insert into <ul class="suggestions">
