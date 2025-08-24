@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+
+<!-- Canvas element: an empty drawing surface -->
+<canvas id="draw" width="800" height="800"></canvas>  <!-- this is like a painting-->
+
+<script>
+   // Select the canvas from the page
+   const canvas = document.querySelector('#draw') 
+
+   // Get the 2D drawing context (the toolset for drawing shapes/lines)
+   const ctx = canvas.getContext('2d')
+
+   // Make the canvas fill the entire browser window
+   canvas.width = window.innerWidth
+   canvas.height = window.innerHeight
+
+   // Set line styles
+   ctx.strokeStyle = '#BADA55'; // default line color (will change later dynamically)
+   ctx.lineJoin = 'square';      // makes the corners of strokes rounded
+   ctx.lineCap = 'square';       // makes the ends of strokes rounded
+   ctx.lineWidth = 100          // initial line thickness
+
+   // Variables to keep track of drawing state
+   let isDrawing = false        // true when mouse is held down
+   let lastX = 0;               // previous mouse X position
+   let lastY = 0;               // previous mouse Y position
+   let hue = 0;                 // color hue (changes over time)
+   let direction = true         // whether lineWidth is increasing or decreasing
+
+   // Function that draws on the canvas
+   function draw(e){
+    if(!isDrawing) return; // stop if mouse is not pressed
+
+    console.log(e)
+    // Set stroke color using HSL and the current hue value (rainbow effect)
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+
+    ctx.beginPath() // start a new line path
+    // Imagine the canvas like a piece of paper.
+    // When you call beginPath(), you are lifting the pen and starting a new stroke.
+
+    ctx.moveTo(lastX, lastY)        // move pen to the last known point
+    //Think of it like: “Okay, start from where the pen was last touching the paper.”
+    
+    ctx.lineTo(e.offsetX, e.offsetY)// draw line to the new mouse position
+    // This draws a straight line from the previous point (lastX, lastY) 
+    // to the current mouse position (offsetX, offsetY).
+
+
+    ctx.stroke(); // actually draw the line on the canvas
+
+    // Update the lastX, lastY to the new position for the next move
+    [lastX , lastY] = [e.offsetX, e.offsetY];
+    //After each little line segment is drawn, you need to remember where you ended so the next segment starts there.
+
+    //If you didn’t update it, every movement would keep starting from the original click point, 
+    // so the lines would keep redrawing from the same spot to the new spot.
+
+    
+    // Increase hue so the color changes gradually
+    hue++;
+    if(hue >= 360){ // if hue goes past full circle, reset
+        hue = 0
+    }
+
+    // Flip the direction of line width change if too thick or too thin
+    if(ctx.lineWidth >= 150 || ctx.lineWidth <= 1){
+        direction = !direction;
+    }
+
+    // Adjust the line width depending on the direction flag
+    if(direction){
+        ctx.lineWidth++ // make the line thicker
+    }else{
+        ctx.lineWidth-- // make the line thinner
+    }
+   }
+   
+   // When mouse is pressed down
+   canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true; // enable drawing
+    [lastX , lastY] = [e.offsetX, e.offsetY]; // set start point
+   });
+
+   // When mouse moves, run draw()
+   canvas.addEventListener('mousemove', draw)
+
+   // When mouse is released, stop drawing
+   canvas.addEventListener('mouseup', () => isDrawing = false)
+
+   // When mouse leaves the canvas, stop drawing
+   canvas.addEventListener('mouseout', () => isDrawing = false)
+</script>
+
+<style>
+  html, body {
+    margin: 0; /* remove default browser margins so canvas fits exactly */
+  }
+</style>
+
+</body>
+</html>
