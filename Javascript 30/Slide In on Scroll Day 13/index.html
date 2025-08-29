@@ -64,19 +64,21 @@
     function checkSlide(e){
        // console.log(e)
         // console.log(window.scrollY)
-         allImages.forEach( element => {
+         allImages.forEach( sliderImage => {
             // this checks halfway thorugh the image
-            const atSlider = (window.scrollY + window.innerHeight) - element.height / 2;
+            const atSlider = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
             console.log(atSlider)
             // bottom of the image
-            const bottomImage = (element.offsetTop + element.height)
-            const ifHalfShowed =  atSlider > element.offsetTop;
-            const isNotScrolledPast = window.scrollY < bottomImage;
+            const bottomImage = (sliderImage.offsetTop + sliderImage.height)
+            
+
+            const ifHalfShowed =  atSlider > sliderImage.offsetTop; // condition when the images is in halfway
+            const isNotScrolledPast = window.scrollY < bottomImage; // condition if the images is not yet scrolled
 
             if(ifHalfShowed && isNotScrolledPast){
-                element.classList.add('active');
+                sliderImage.classList.add('active');
             }else{
-                element.classList.remove('active');
+                sliderImage.classList.remove('active');
             }
     })
     }
