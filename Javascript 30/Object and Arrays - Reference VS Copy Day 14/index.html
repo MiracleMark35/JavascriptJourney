@@ -93,7 +93,7 @@
     console.log(newMark);
     newMark.social.facebook = 'GWAPO';  // it changes the original array because of one level
 
-    const newMark3 = structuredClone(mark);
+    const newMark3 = structuredClone(mark); // this is the best choice when copying objects in javascript in modern browsers
     newMark3.social.instagram = ' Dont Change';
     // NOW IT IS A COPY OF THE OBJECT
   </script>
