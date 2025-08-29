@@ -24,11 +24,16 @@ function UpdateButton(){
 }
 
 function range(){
-
+console.log(this.name) // name
+console.log(this.value) // value
+video[this.name] = this.value;  
 }
 
 
-
+function handleProgress(){
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${percent}%`;
+}
 function skip(){
     console.log(this.dataset.skip) // the console log na ang skip value
     // skipper.value += this.dataset.skip;
@@ -36,15 +41,38 @@ function skip(){
    video.currentTime += parseFloat(this.dataset.skip) // so dapat video diay
 }
 
+function scrub(e){
+    console.log(e)
+    console.log(e.offsetX)
+    console.log(progress.offsetWidth)
+    console.log(video.duration)
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+    console.log(scrubTime)
+    video.currentTime = scrubTime
+}
+
 
 // Hook Up with Event Listeners
 
 video.addEventListener('click', togglePlayer);
+
 togglePlay.addEventListener('click', UpdateButton);
-video.addEventListener('click', UpdateButton);
+video.addEventListener('click', UpdateButton); // correct
+video.addEventListener('timeupdate', handleProgress) //correct
 
 skipper.forEach( (button) => {
     button.addEventListener('click', skip)
 })
 
-video.addEventListener('ended ', () => { video.play()})
+// video.addEventListener('ended ', () => { video.play()})
+
+player__sliders.forEach( (element) => {
+ element.addEventListener('change', range);
+})
+
+let mousemove = false;
+
+progress.addEventListener('click', scrub); 
+progress.addEventListener('mousemove', (e) =>  mousemove && scrub(e) )
+progress.addEventListener('mousedown', () => mousemove = true)
+progress.addEventListener('mouseup', () => mousemove = false)

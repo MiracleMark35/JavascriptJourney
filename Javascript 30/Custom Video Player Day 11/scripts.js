@@ -63,6 +63,8 @@ button.forEach(element => {
 range.forEach( element => {
     element.addEventListener('change', HandleRange)
 })
+
+
 let mousedown = false
 
 progress.addEventListener('click', scrub)
