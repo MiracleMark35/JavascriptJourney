@@ -19,7 +19,7 @@
     <p></p>
     <ul class="plates">
       <li>Loading Tapas...</li>
-    </ul>
+  </ul> <!--- BY DEFAULT THE FORM IS REFRESHING THE PAGE-->
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
@@ -27,10 +27,62 @@
   </div>
 
 <script>
-  const addItems = document.querySelector('.add-items');
-  const itemsList = document.querySelector('.plates');
-  const items = [];
+  const addItems = document.querySelector('.add-items'); // get the form
+  const itemsList = document.querySelector('.plates'); // get the plates
+  const items = JSON.parse(localStorage.getItem('item')) || [];
 
+                            // it activates when the user press submit or enter
+addItems.addEventListener('submit', addItem);
+
+itemsList.addEventListener('click', toggleOpen);
+populateLists(items, itemsList);
+
+function toggleOpen(e) {
+  if(!e.target.matches('input')) return; // skip this unless and input is interacted
+  // console.log(e.target)
+  const element = e.target; // element of the input or the checkbox
+  const index = element.dataset.index; // the purpose of the index
+  console.log(index) // index of what is here
+  items[index].done = !items[index].done; // update the value of that index
+  localStorage.setItem('item', JSON.stringify(items));
+  populateLists(items, itemsList);
+
+}
+  function addItem(e){
+    // console.log(e) We Must Prevent the Refresh
+    e.preventDefault(); // this prevents refresh
+   // console.log(e)            // chose the one with the name in it
+   // console.log(this.querySelector('[name=item]')) // its the input
+                                                   //this is the form itself
+    const text = (this.querySelector('[name=item]')).value;
+   //  console.log(text) // value of the user typed
+    const item = { // create an item object to store in an array
+      text: text, // or text, ES6 sytax
+      done: false
+    };
+    items.push(item); // push it 
+    populateLists(items, itemsList); // populate it
+    localStorage.setItem( 'item' , JSON.stringify(items) ) 
+                          // key
+    this.reset(); // reset the form
+  }
+
+  function populateLists(plates = [], plateLists){ // returns an <li> string
+   // console.log(plates)
+    plateLists.innerHTML = plates.map( (plate, i) => { // we need to use map because we need to loop every single array 
+                                              //  <!---item{i} will link up to the label -->
+       return `
+       <li>                                  
+       <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}/>
+       <label for="item${i}">${plate.text}</label>
+       </li>
+       `                                       // read the raw data then return an array of some other data in our case it is a string
+    }).join(''); // make it a large string
+  }
+
+  // Local storage is a database or a data persistence that allow you to save key pair value as an object 
+  // to your browsers like a databse
+  // that storage is specific to a particular browser on a particular device
 </script>
 
 
