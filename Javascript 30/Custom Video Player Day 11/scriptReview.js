@@ -13,7 +13,7 @@ const skipper = player.querySelectorAll('[data-skip]');
 function togglePlayer(){
     const Method = video.paused ? 'play' : 'pause'; // so dapat pause una kay pause man ang vid sa unahan
    //  video.pause();
-    video[Method](); // method dayun
+    video[Method](); // method  nowww
 }
 
 function UpdateButton(){
@@ -26,29 +26,31 @@ function UpdateButton(){
 function range(){
 console.log(this.name) // name
 console.log(this.value) // value
-video[this.name] = this.value;  
+video[this.name] = this.value;  // update whatever is the value of it
+                                // e.g like volume or playback
 }
 
 
 function handleProgress(){
-    const percent = (video.currentTime / video.duration) * 100;
-    progressBar.style.flexBasis = `${percent}%`;
+    const percent = (video.currentTime / video.duration) * 100; // calculate the progress bar
+    progressBar.style.flexBasis = `${percent}%`; // set the style
 }
 function skip(){
     console.log(this.dataset.skip) // the console log na ang skip value
     // skipper.value += this.dataset.skip;
    // console.log(skipper.value)
    video.currentTime += parseFloat(this.dataset.skip) // so dapat video diay
+                                //the string value stored in this.dataset.skip into a floating-point number.
 }
 
 function scrub(e){
-    console.log(e)
-    console.log(e.offsetX)
-    console.log(progress.offsetWidth)
-    console.log(video.duration)
-    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
-    console.log(scrubTime)
-    video.currentTime = scrubTime
+    // console.log(e)
+   //  console.log(e.offsetX)
+    // console.log(progress.offsetWidth)
+  //   console.log(video.duration)
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration; // make a scrub time
+    console.log(scrubTime) 
+    video.currentTime = scrubTime // set current to scrub time
 }
 
 
@@ -57,10 +59,12 @@ function scrub(e){
 video.addEventListener('click', togglePlayer);
 
 togglePlay.addEventListener('click', UpdateButton);
-video.addEventListener('click', UpdateButton); // correct
-video.addEventListener('timeupdate', handleProgress) //correct
 
-skipper.forEach( (button) => {
+video.addEventListener('click', UpdateButton); // correct
+
+video.addEventListener('timeupdate', handleProgress) //correct
+                // The timeupdate event is fired when the time indicated by the currentTime attribute has been updated.
+skipper.forEach( (button) => { // for each button we listen to clicks
     button.addEventListener('click', skip)
 })
 
@@ -70,9 +74,11 @@ player__sliders.forEach( (element) => {
  element.addEventListener('change', range);
 })
 
-let mousemove = false;
+let mousemove = false; // make it false
 
-progress.addEventListener('click', scrub); 
-progress.addEventListener('mousemove', (e) =>  mousemove && scrub(e) )
-progress.addEventListener('mousedown', () => mousemove = true)
-progress.addEventListener('mouseup', () => mousemove = false)
+
+// Click + drag to scrub
+progress.addEventListener('click', scrub);  // Single click to jump
+progress.addEventListener('mousemove', (e) => { if(mousemove){ scrub(e)}} ) // mousemove → only calls scrub(e) if mousemove === true.
+progress.addEventListener('mousedown', () => mousemove = true) // set mousemove = true (user is dragging).
+progress.addEventListener('mouseup', () => mousemove = false) // Set back to false (dragging stops).
