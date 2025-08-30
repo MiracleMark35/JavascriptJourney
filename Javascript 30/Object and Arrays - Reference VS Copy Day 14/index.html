@@ -76,7 +76,7 @@
     // how do we take a copy instead?              // THIS HERE IS ADD EXTRA IF NEEDED ADD NEW OR EDIT
     const newCaptain = Object.assign({} ,person, {age: 100, number: '09985689462'})
     // We will hopefully soon see the object ...spread
-    const newCaptain2 = {...person};
+    const newCaptain2 = {...person}; // is only a shallow copy (1 level deep).
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
@@ -92,7 +92,7 @@
     console.log(mark);
     console.log(newMark);
     newMark.social.facebook = 'GWAPO';  // it changes the original array because of one level
-
+                    //structuredClone(object)
     const newMark3 = structuredClone(mark); // this is the best choice when copying objects in javascript in modern browsers
     newMark3.social.instagram = ' Dont Change';
     // NOW IT IS A COPY OF THE OBJECT
