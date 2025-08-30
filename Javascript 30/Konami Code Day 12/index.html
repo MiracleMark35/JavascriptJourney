@@ -11,13 +11,14 @@
 const press = [];
 const secretCode = 'mark'
 
-        window.addEventListener('keyup', (e) => {
+        window.addEventListener('keyup', (e) => { // listen every key
            //  console.log(e.key) what key did u press
-           press.push(e.key);
-           press.splice(-secretCode.length - 1, press.length - secretCode.length) // Limit
+           press.push(e.key); // push the key into the array
+
+           press.splice(-secretCode.length - 1, press.length - secretCode.length) // Limit 
            console.log(press)
-
-
+        
+          
             if(press.join('').includes(secretCode)){
                 console.log('DING')
             cornify_add()               
