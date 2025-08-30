@@ -18,9 +18,10 @@ const secretCode = 'mark'
            press.splice(-secretCode.length - 1, press.length - secretCode.length) // Limit 
            console.log(press)
         
-          
-            if(press.join('').includes(secretCode)){
-                console.log('DING')
+            // .join('') glues all the array elements together into a single string with no separator:
+            if(press.join('').includes(secretCode)){ //secretCode = 'mark'
+            // "mark".includes("mark") → true
+            console.log('DING')
             cornify_add()               
 }
         })
