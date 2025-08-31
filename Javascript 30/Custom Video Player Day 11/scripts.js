@@ -6,20 +6,25 @@ const filled = player.querySelector('.progress__filled')
 const toggle = player.querySelector('.toggle')
 const range = player.querySelectorAll('.player__slider')
 const button = player.querySelectorAll('[data-skip]')
-
+const LoopButton = player.querySelector('#loopIt');
 
 // Build Out Functions
 
+LoopButton.addEventListener('click', (e) => {
+    video.loop = !video.loop;
+    console.log(video.loop);
+
+ e.target.style.background = video.loop ? "green" : "red"; 
+});
 
 function TogglePlay( ){
     const method = video.paused ? 'play' : 'pause';
-
     video[method]();
    
 }
 
 function skip(){
-    console.log(this.dataset.skip)
+    // console.log(this.dataset.skip)
     video.currentTime += parseFloat(this.dataset.skip)
 
 
@@ -38,7 +43,7 @@ function HandleProgress(){
 }
 function UpdateButton(){
     const icon = this.paused ? '►' : '❚ ❚';
-    console.log(icon);
+  //   console.log(icon);
     toggle.textContent = icon;
 }
 

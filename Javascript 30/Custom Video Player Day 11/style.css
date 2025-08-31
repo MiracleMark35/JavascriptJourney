@@ -43,6 +43,8 @@ body {
   width: 100%;
 }
 
+
+
 .player__video {
   width: 100%;
 }
@@ -59,6 +61,10 @@ body {
   max-width: 50px;
 }
 
+.player__button.special {
+  background: green;  /* default color */
+  color: white;       /* better contrast */
+}
 .player__button:focus {
   border-color: #ffc600;
 }
