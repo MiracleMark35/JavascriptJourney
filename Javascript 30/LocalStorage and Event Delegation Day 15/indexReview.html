@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalStorage</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <!--
+      Fish SVG Cred:
+      https://thenounproject.com/search/?q=fish&i=589236
+   -->
+
+  <div class="wrapper">
+    <h2>LOCAL TAPAS</h2>
+    <p></p>
+    <ul class="plates">
+      <li>Loading Tapas...</li>
+    </ul>
+    <form class="add-items">
+      <input type="text" name="item" placeholder="Item Name" required>
+      <input type="submit" value="+ Add Item">
+    </form>
+    <button id="clear" name="Clear-Button">Clear</button>
+
+  </div>
+
+<script>
+  const addItems = document.querySelector('.add-items');
+  const itemsList = document.querySelector('.plates');
+  const items = JSON.parse(localStorage.getItem('Local')) || [];
+
+  const clearButton = document.getElementById('clear');
+  // console.log(clearButton)
+
+  clearButton.addEventListener('click', () => {
+  localStorage.removeItem('Local');  // clear saved data
+  items.length = 0; // clear array in memory
+  load(items, itemsList);  // refresh UI
+  addItems.reset();                 // clear the input box ✅
+
+});
+
+  addItems.addEventListener('submit', addItem);
+//   //itemsList.addEventListener('click', load); // So theItems is actually a MouseEvent object (not an array), and PlatesInfo is undefined.
+// Hence the error.
+
+  itemsList.addEventListener('click', toggleOpen);
+  load(items, itemsList);
+  function addItem(e){
+
+    e.preventDefault();
+
+    const text = (this.querySelector('[name="item"]')).value;
+    // console.log(text)
+     const item = {
+         text,
+         done: false
+    };
+
+    items.push(item);
+    localStorage.setItem('Local', JSON.stringify(items));
+    load(items, itemsList);
+  }
+
+  function load( theItems = [], PlatesInfo){
+     // console.log(PlatesInfo)
+     //console.log(theItems);
+
+    PlatesInfo.innerHTML = theItems.map( (plate, i) => {
+        return `
+        <li>
+        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} >   
+        <label for="item${i}">${plate.text}</label> 
+        </li>
+        `
+    }).join('');
+  }
+  // this very important to connect the input to label
+  //  for="item${i}
+
+  function toggleOpen(e){
+    if(!e.target.matches('input')) return;
+    const element = e.target;
+    // console.log(element)
+    const index = element.dataset.index;
+
+    // console.log(index)
+
+    items[index].done = !items[index].done;
+    localStorage.setItem('Local', JSON.stringify(items));
+    load(items,itemsList );
+  }
+
+</script>
+
+
+</body>
+</html>
