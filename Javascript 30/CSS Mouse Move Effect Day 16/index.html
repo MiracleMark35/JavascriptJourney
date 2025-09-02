@@ -54,7 +54,10 @@ function  shadow (e){
     //console.log(this); 
 
     if(this !== e.target){
-       // console.log(e.target);
+        //That if (this !== e.target) block is like a safety net — 
+        // it’s double-checking whether the mouse event is coming from the main container (.hero) 
+        // or from a child element inside it (like <h1>,
+       // console.log(e.target); // e.target is the actual element under the mouse (could be .hero or the <h1> inside it).
        x = x + e.target.offsetLeft;
        y = y + e.target.offsetTop; 
     }
