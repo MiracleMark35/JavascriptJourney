@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("image.png");
+      background-size: cover;
+      display: flex;
+      background-size: 100% 100%;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <ul id="bands"></ul>
+
+<script>
+
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+// const sortband = bands.map( (band) => {
+//     return band.split(" ").slice(1).join(" ");
+// }).sort( (a , b) => {
+//      a > b ? 1 : -1;
+// })
+
+function strip(bandName){
+   // return bandName.split(" ").slice(1).join(" "); This Removes The Every First Word
+    return bandName.replace(/^(a |an |the )/i, '').trim(); // ignore only “a”, “an”, “the” (and keep the rest
+}
+
+const sortedBands = bands.sort( (a , b)=> {
+   return strip(a).localeCompare(strip(b)); // forgot to return so must return;
+})
+const display = document.getElementById('bands')
+
+display.innerHTML = sortedBands.map( (band) => {
+  return `<li>${band}</li>`
+}).join('');
+
+console.table(sortedBands)
+</script>
+
+</body>
+</html>
