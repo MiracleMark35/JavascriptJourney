@@ -178,11 +178,39 @@
     <li data-time="1:56">
       Video 57
     </li>
-    <li data-time="4:04">
+    <li data-time="4:10">
       Video 58
     </li>
   </ul>
 <script>
+  //Select all elements with data-time:
+const timeNodes = [...document.querySelectorAll('[data-time]')];
+/*
+const seconds = timeNodes.map(node =>{
+   return node.dataset.time; //Extract the time values (like "5:43"):
+}).map( timeZone => {
+  const [Minutes , Seconds] = timeZone.split(':').map( strings => parseFloat(strings )) // Convert each mm:ss string into total seconds:
+  return (Minutes * 60) + Seconds; // Convert each mm:ss string into total seconds:
+}).reduce( (total, seconds) => {
+  return total + seconds; // Sum all the seconds together:
+})
+*/
+
+
+// Convert total seconds into hours, minutes, and leftover seconds:
+let secondsLeft = totalSeconds;
+
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft = secondsLeft % 3600;
+
+const minutesLEft = Math.floor(secondsLeft / 60);
+secondsLeft = secondsLeft % 60;
+
+console.log(hours, minutesLEft)
+
+// console.log(seconds)
+// : The script calculates the total runtime of all videos in the list and 
+// logs it in hours and minutes to the console.
 </script>
 </body>
 </html>
