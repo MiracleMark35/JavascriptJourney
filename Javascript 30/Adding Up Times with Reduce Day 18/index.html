@@ -195,7 +195,10 @@ const seconds = timeNodes.map(node =>{
   return total + seconds; // Sum all the seconds together:
 })
 */
-
+const totalSeconds = timeNodes.reduce( (Total , node) => {
+  const [Minutes , Seconds] = node.dataset.time.split(':').map( str => { return parseFloat(str)})
+  return Total + (Minutes * 60) + Seconds;
+}, 0); 
 
 // Convert total seconds into hours, minutes, and leftover seconds:
 let secondsLeft = totalSeconds;
