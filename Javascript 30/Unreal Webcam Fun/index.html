@@ -2,35 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Get User Media Code Along!</title>
+  <title>Unreal Webcam Fun</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-
   <div class="photobooth">
     <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
-<!--       <div class="rgb">
-        <label for="rmin">Red Min:</label>
-        <input type="range" min=0 max=255 name="rmin">
-        <label for="rmax">Red Max:</label>
-        <input type="range" min=0 max=255 name="rmax">
+      <button class="take-photo">Take Photo</button>
 
+      <div class="rgb">
+        <label>
+          Red Min:
+          <input type="range" min="0" max="255" name="rmin">
+        </label>
+
+        <label>
+          Red Max:
+          <input type="range" min="0" max="255" name="rmax">
+        </label>
         <br>
 
-        <label for="gmin">Green Min:</label>
-        <input type="range" min=0 max=255 name="gmin">
-        <label for="gmax">Green Max:</label>
-        <input type="range" min=0 max=255 name="gmax">
+        <label>
+          Green Min:
+          <input type="range" min="0" max="255" name="gmin">
+        </label>
 
+        <label>
+          Green Max:
+          <input type="range" min="0" max="255" name="gmax">
+        </label>
         <br>
 
-        <label for="bmin">Blue Min:</label>
-        <input type="range" min=0 max=255 name="bmin">
-        <label for="bmax">Blue Max:</label>
-        <input type="range" min=0 max=255 name="bmax">
-      </div> -->
+        <label>
+          Blue Min:
+          <input type="range" min="0" max="255" name="bmin">
+        </label>
+
+        <label>
+          Blue Max:
+          <input type="range" min="0" max="255" name="bmax">
+        </label>
+      </div>
     </div>
 
     <canvas class="photo"></canvas>
@@ -40,7 +53,6 @@
 
   <audio class="snap" src="./snap.mp3" hidden></audio>
 
-  <script src="scripts.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
