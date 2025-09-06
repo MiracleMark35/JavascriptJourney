@@ -25,14 +25,15 @@ words.appendChild(p);
 
 recognition.addEventListener('result', (e) => {
   
-  const transcript = Array.from(e.results).map(result => result[0])
+  const transcript = Array.from(e.results).map(result => result[0]) // get only the transipt of all rhe result
   .map(result => result.transcript)
   .join('');
 
   p.textContent = transcript
-  if(e.results[0].isFinal){
-    p = document.createElement('p');
-    words.appendChild(p);
+
+  if(e.results[0].isFinal){ // if the isfinal is true 
+    p = document.createElement('p'); // then create another p tag
+    words.appendChild(p); // then append it
   }
   console.log(transcript);
 
