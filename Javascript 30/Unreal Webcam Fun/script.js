@@ -1,13 +1,13 @@
 const video = document.querySelector('.player');
 const canvas = document.querySelector('.photo');
-const ctx = canvas.getContext('2d');
-const strip = document.querySelector('.strip');
-const snap = document.querySelector('.snap');
+const ctx = canvas.getContext('2d');          // ctx is like your paintbrush for the canvas.
+const strip = document.querySelector('.strip'); // This is where your taken photos will appear.
+const snap = document.querySelector('.snap'); // the sound
 
 function getVideo(){
-  navigator.mediaDevices.getUserMedia({video: true, audio:false})
+  navigator.mediaDevices.getUserMedia({video: true, audio:false}) // returns a promis
   .then(LocalMediaStream => {
-    console.log(LocalMediaStream);
+    console.log(LocalMediaStream); // the data
     // old video.src = window.URL.createObjectURL(LocalMediaStream);
     video.srcObject = LocalMediaStream;
     video.play();
@@ -23,7 +23,9 @@ function paintCanvas() {
   canvas.height = height;
 
   return setInterval(() => {
-    ctx.drawImage(video, 0, 0, width, height);
+    ctx.drawImage(video, 0, 0, width, height); // Copies the current frame of the video and 
+                                               // draws it onto the canvas at (0,0) with width/height.
+
     // take the pixels out
     let pixels = ctx.getImageData(0, 0, width, height);
     // mess with them
@@ -34,8 +36,10 @@ function paintCanvas() {
 
      pixels = greenScreen(pixels);
     // put them back
+    //After messing with pixel data (colors, transparency, effects), 
+    // this redraws the changed pixels onto the canvas.
     ctx.putImageData(pixels, 0, 0);
-  }, 16);
+  }, 16); // Runs the code inside every 16 milliseconds (like a movie frame).
 }
 function takePhoto(){
 
@@ -47,11 +51,13 @@ function takePhoto(){
     const data = canvas.toDataURL('image/jpeg');
    //  console.log(data); // long DATA STRING
    const link = document.createElement('a');
-   link.href = data;
-   link.setAttribute('download', 'handsome');
+   link.href = data;  // Setting link.href = data makes the link download/show that image.
+   link.setAttribute('download', 'handsome'); // Tells the browser: when clicked, download this file.
    link.innerHTML = `<img src="${data}" alt="Handome Man" />`
+                             // the image 
+   strip.insertBefore(link, strip.firstChild); //Puts the new photo (link) at the start of .strip.
+                                               //This makes the latest picture show first.
 
-   strip.insertBefore(link, strip.firstChild);
  }
 
 function redEffect(pixels) {
@@ -103,4 +109,4 @@ function greenScreen(pixels) {
  // The way that filter works is that you get the pixels out of the canvas and you can mess with them in RGB values
 getVideo();
 
-video.addEventListener('canplay', paintCanvas);
+video.addEventListener('canplay', paintCanvas); // "canplay" event = fires when the video has enough data to start playing.
