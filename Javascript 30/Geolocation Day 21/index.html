@@ -63,13 +63,32 @@
     const arrow = document.querySelector('.arrow');
     const speed = document.querySelector('.speed-value');
 
-    navigator.geolocation.watchPosition((data) => {
+    //navigator is a built-in browser object in JavaScript.
+
+    //It gives you information and access to features of the browser and device.
+
+    //navigator.geolocation → Access to GPS/location services.
+    navigator.geolocation.watchPosition((data) => { 
       console.log(data);
       speed.textContent = data.coords.speed;
       arrow.style.transform = `rotate(${data.coords.heading}deg)`;
     }, (err) => {
       console.error(err);
     });
+
+   /*
+   navigator.geolocation.watchPosition(
+  (position) => { console.log(position); },   // success callback
+  (error) => { console.error(error); }        // error callback
+);
+   */
+
+//   Yes → if the function is designed to take an error callback (like watchPosition).
+
+// No → for normal functions or ones not built that way.
+
+// Modern approach → use Promises (.catch) or try...catch with async/await.
+
   </script>
 </body>
 </html>
