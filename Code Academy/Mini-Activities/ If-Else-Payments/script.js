@@ -5,12 +5,12 @@ const Paid = document.getElementById("Paid");
 const AreUSub = document.getElementById("AreUSub");
 const Payment = document.getElementById("Payment");
 
-
-Paid.onclick = function (){
-
+Paid.addEventListener('click', () => {
   if(Subsb.checked){
+    console.log("Subscribed")
     AreUSub.textContent = "Subscribed"
   }else{
+     console.log("Not Subscribed")
     AreUSub.textContent = "Not Subscribed"
   }
 
@@ -23,4 +23,4 @@ Paid.onclick = function (){
 
   }
 
-}
+})
