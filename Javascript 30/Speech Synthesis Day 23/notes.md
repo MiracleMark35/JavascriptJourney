@@ -25,3 +25,13 @@ msg.text = document.querySelector('[name="text"]').value;
 
 // This takes the initial text inside the <textarea> (→ “Hello! I love JavaScript 👍”) and stores it as the message to be spoken.
 ```
+
+# Options
+```javascript
+ const options = document.querySelectorAll('[type="range"], [name="text"]');
+ //Select all elements in the page that are either
+
+//<input type="range"> (your rate & pitch sliders), or
+
+//<textarea name="text"> (your message box).
+ ```
