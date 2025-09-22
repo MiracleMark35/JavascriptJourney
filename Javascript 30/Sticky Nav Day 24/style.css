@@ -27,9 +27,10 @@ body {
 
 header {
   text-align: center;
-  height: 50vh;
-  background: url(https://source.unsplash.com/GKN6rpDr0EI/960x640) bottom center no-repeat;
-  background-size: cover;
+   height: 50vh; /* full screen height */
+ background: url("https://thumbs.dreamstime.com/b/incredibly-beautiful-sunset-sun-lake-sunrise-landscape-panorama-nature-sky-amazing-colorful-clouds-fantasy-design-115177001.jpg?w=768") no-repeat center center;
+   background-size: cover; /* show full image, no crop */
+  background-color: #000;   /* optional: black borders around if aspect ratio differs */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,8 +47,13 @@ nav {
   top: 0;
   width: 100%;
   transition: all 0.5s;
-  position: relative;
+  position: sticky;
   z-index: 1;
+}
+
+
+.fixed-nav li.logo {
+  max-width: 500px;
 }
 
 nav ul {
