@@ -7,7 +7,7 @@ function Clear (){
 function Calculate(){ 
 
     try{
-        display.value = eval(display.value) // Evaluates the mathematical expression
+        display.value =     (display.value) // Evaluates the mathematical expression
     }catch(error){
         display.value = "Error"; // Shows an error message for invalid input
     }
