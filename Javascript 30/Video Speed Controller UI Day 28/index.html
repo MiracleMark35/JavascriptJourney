@@ -9,13 +9,39 @@
 <body>
 
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+    <video class="flex" width="765" height="430" src="41.mp4" loop controls></video>
     <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
 <script>
+
+     const video = document.querySelector('.flex')
+    // console.log(video);
+
+    const speedbar = document.querySelector('.speed')
+   //  console.log(speedbar)
+    const bar = speedbar.querySelector('.speed-bar');
+
+    speedbar.addEventListener('mousemove', function(e){
+       // console.log(e)
+        const y = e.pageY - this.offsetTop;
+       // console.log(y)
+        const percent  = y /this.offsetHeight;
+        const min = 0.4;
+        const max = 4;
+        const height = Math.round(percent * 100) + '%';
+        const playbackRate = percent * (max - min ) + min;
+        bar.style.height = height;
+        bar.textContent = playbackRate.toFixed(2) + 'x';
+        console.log(playbackRate)
+        if(playbackRate.toFixed(2) == 3.99){
+             bar.textContent = 4 + 'x';
+        }
+        video.playbackRate = playbackRate;
+
+    })
 </script>
 </body>
 </html>
