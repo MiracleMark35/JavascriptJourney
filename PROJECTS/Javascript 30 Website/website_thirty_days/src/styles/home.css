@@ -1,0 +1,96 @@
+/* =============== General =============== */
+.home {
+  background-color: #f7f4e9;
+  color: #1a1a1a;
+  font-family: "Courier New", monospace;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* =============== Intro Section =============== */
+.intro {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  background-color: #f7c984;
+  border: 3px solid #111;
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 #111;
+  padding: 30px;
+  text-align: left;
+  position: relative;
+}
+
+.intro__text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.intro strong {
+  color: #1a1a1a;
+  background-color: #fff5d6;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.intro a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.intro a:hover {
+  color: #ff4f4f;
+}
+
+/* =============== Buttons (Links) =============== */
+.intro__links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: 2px solid #111;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #111;
+}
+
+.link--view {
+  background-color: #f2a49f;
+}
+
+.link--repo {
+  background-color: #fef2b0;
+}
+
+/* =============== Projects Section =============== */
+.projects {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.projects__title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  border-bottom: 2px dashed #111;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* =============== Grid Layout =============== */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
