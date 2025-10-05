@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/ProjectCard.css"
 
 const ProjectCard = ( {project}) => {
@@ -12,7 +11,7 @@ console.log(project.img)
         </div>
 
 <img 
-  src={project.img ? project.img : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLat8bZvhXD3ChSXyzGsFVh6qgplm1KhYPKA&s"} 
+  src={project.img} 
   alt={project.title} 
   className="card__image" 
 />
