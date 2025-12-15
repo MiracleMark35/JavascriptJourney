@@ -15,7 +15,7 @@ JSON is a popular, language-independent, standard format for storing and exchang
 <img width="1325" height="678" alt="image" src="https://github.com/user-attachments/assets/8d0435aa-0ab9-4617-8837-882f34176b3f" />
 
 # The URL Module
-
+```javascript
 const URL_TO_PARSE = 'https://www.example.com/p/a/t/h?prop1=value1&prop2=value2';
 
 const myUrl = new URL(URL_TO_PARSE);
@@ -25,4 +25,4 @@ const hostname = myUrl.hostname;
 const pathname = myUrl.pathname;
 
 const searchParams  = myUrl.searchParams ;
-
+```
