@@ -17,3 +17,7 @@ Web Servers
 Creates a package.json file in your folder.
 # Why is it important?
 Keeps track of dependencies
+# Accessing env variables
+```javascript
+ "start": "nodemon --env-file=.env server.js"
+```
