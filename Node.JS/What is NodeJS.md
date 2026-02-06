@@ -1,7 +1,10 @@
 # What is Node JS
 it is Scalability and performance - it can handles large application seamlessly.
+
 it is the same language from front-end and backend it is also cost effective due to same language no need to spend development to other languages.
+
 it is real time application means it can handle chat applications and online gaming.
+
 it can create apps in windows linux.
 
 # Meaning 
