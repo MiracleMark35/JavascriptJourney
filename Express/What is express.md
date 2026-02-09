@@ -15,3 +15,21 @@
 * Controllers
 * Fetching From Frontend
 * Environment Variables
+
+```javascript
+// app is basically what we use for routes, middleware , listening
+const app  = express()
+```
+# APP
+const app = express()
+
+This creates the main Express application.
+
+Think of app as the entire server.
+
+# Router
+const router = express.Router()
+
+This creates a mini app / sub-router.
+
+Think of router as a group of related routes.
