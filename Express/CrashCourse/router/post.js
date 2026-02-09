@@ -30,12 +30,52 @@ if(!post ){
 
 // create posts
  router.post('/', (req, res) => {
-    console.log(req.body)
 
-    res.status(200).json(posts)
+//   console.log('METHOD:', req.method)
+//   console.log('BODY:', req.body)
+//   console.log('BODY:', req.body.id)
+//    console.log('BODY:', req.body.title)
+    
+const neWPost = {
+    id: posts.length + 1,
+    title: req.body.title
+}
+
+if(!neWPost.title){
+  return res.status(400).json({mesage: "Pls type correctly"})
+}
+  posts.push(neWPost)
+  console.log("Success")
+res.status(200).json(posts)
  })
 
 
+
+router.put('/:id' , (req, res) => {
+    const id = parseInt(req.params.id)
+    const post = posts.find( (post) => post.id === id)
+
+    if(!post){
+        return res.status(404).json({ mesaage: "post not FOund"})
+    }
+
+    post.title = req.body.title;
+    res.status(200).json(posts)
+})
+
+
+//delete 
+router.delete('/:id' , (req, res) => {
+    const id = parseInt(req.params.id)
+    const post = posts.find( (post) => post.id === id)
+
+    if(!post){
+        return res.status(404).json({ mesaage: "post not FOund"})
+    }
+
+    posts = posts.filter( (post) => post.id !== id)
+    res.status(200).json(posts)
+})
 export default router
 
 

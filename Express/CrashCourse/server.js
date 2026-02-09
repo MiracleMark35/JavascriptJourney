@@ -12,8 +12,9 @@ const PORT = process.env.PORT || 8000;
 // app is basically what we use for routes, middleware , listening
 const app  = express()
 
+
 app.use(express.json())
-app.use(express.urlencoded( {extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use( '/api/posts' , posts)
 // static folder
 // app.use(express.static(path.join(__dirname, 'public')))
