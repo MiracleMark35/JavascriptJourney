@@ -72,7 +72,7 @@ const DeletePostById=  (req, res,next) => {
     const post = posts.find( (post) => post.id === id)
 
     if(!post){
-           const error =  new Error(`Coud'nt found post ${id} to delete`)
+           const error =  new Error(`Couldn't found post ${id} to delete`)
     error.status = 404
     return next(error)
     }

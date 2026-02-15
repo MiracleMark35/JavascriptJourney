@@ -33,3 +33,40 @@ const router = express.Router()
 This creates a mini app / sub-router.
 
 Think of router as a group of related routes.
+
+# Controllers
+
+# Middlewares
+
+
+# APP.use()
+
+# Custom Error
+# In Most Express Apps → It’s Custom Made
+👉 A custom AppError class
+
+👉 A custom error middleware
+
+ 👉 HTTP Error Helpers
+👉 Custom error classes
+
+👉 Validation library (Joi / Zod)
+
+👉 Logging library (Winston / Pino)
+
+👉 Centralized error middleware 
+
+# 🏆 So What Should YOU Do?   
+
+👉 Start with custom AppError
+👉 Add asyncHandler
+👉 Later add Zod or Joi for validation
+
+# 🔥 The Real Industry Ways
+The standard is:
+
+✅ Consistency
+✅ Proper HTTP status codes
+✅ Centralized handling
+✅ No crash leaks
+✅ Clean response structure
