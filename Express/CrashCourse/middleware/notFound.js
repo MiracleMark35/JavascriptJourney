@@ -1,6 +1,6 @@
  
  const Missing = (req, res, next) => {
-    const error = new Error("Not Found Not YET")
+    const error = new Error("Not Found")
     error.status = 404;
     next(error)
 }

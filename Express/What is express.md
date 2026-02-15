@@ -70,3 +70,6 @@ The standard is:
 ✅ Centralized handling
 ✅ No crash leaks
 ✅ Clean response structure
+
+# Fetching
+
