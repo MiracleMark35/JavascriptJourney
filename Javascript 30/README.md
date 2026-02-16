@@ -22,13 +22,12 @@ Here’s the official list of the 30 projects:
 ## 🚀 JavaScript 30 Projects
 
 1. [Drum Kit 🥁](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Drum%20Beat%20Day%201/index.html)
-2. [JS + CSS Clock ⏰]()
-3. [CSS Variables 🎨]()
-4. [Array Cardio Day 1 🏋️‍♂️]()
-5. [Flex Panel Gallery 🖼️])
-6. [Type Ahead (Search) 🔍]()
+3. [CSS Variables 🎨](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/CSS%20Variables%20Day%203/index.html)
+4. [Array Cardio Day 1 🏋️‍♂️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Array%20Cardio%20Day%204/index.html)
+5. [Type Ahead (Search) 🔍](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Type%20Ahead%20Day%206/index.html)
+6. [Flex Panel Gallery 🖼️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Flex%20Panels%20Day5/index.html)
 7. [Array Cardio Day 2 🏋️‍♀️]()
-8. [Fun with HTML5 Canvas 🎨](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/HTML5%20Canvas/index.html)
+8. [Fun with HTML5 Canvas 🎨]()
 9. [Dev Tools Domination 🛠️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Dev%20Tools%20Domination/index.html)
 10. [Hold Shift to Check Checkboxes ☑️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Hold%20Shift%20Checkboxes/index.html)
 11. [Custom Video Player ▶️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Custom%20Video%20Player/index.html)
