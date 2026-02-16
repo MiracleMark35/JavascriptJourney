@@ -21,7 +21,10 @@ Here’s the official list of the 30 projects:
 
 ## 🚀 JavaScript 30 Projects
 
+## 🚀 JavaScript 30 Projects
+
 1. [Drum Kit 🥁](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Drum%20Beat%20Day%201/index.html)
+2. [JS + CSS Clock ⏰](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/CSS%20+%20JS%20Clock%20%20Day%202/index_review.html)
 3. [CSS Variables 🎨](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/CSS%20Variables%20Day%203/index.html)
 4. [Array Cardio Day 1 🏋️‍♂️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Array%20Cardio%20Day%204/index.html)
 5. [Type Ahead (Search) 🔍](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Type%20Ahead%20Day%206/index.html)
@@ -34,7 +37,7 @@ Here’s the official list of the 30 projects:
 12. [Key Sequence Detection (Konami Code) 🎮](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Konami%20Code%20Day%2012/index.html)
 13. [Slide in on Scroll 📜](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Slide%20In%20on%20Scroll%20Day%2013/index.html)
 14. [JavaScript References vs Copying ✍️](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Object%20and%20Arrays%20-%20Reference%20VS%20Copy%20Day%2014/index.html)
-15. [LocalStorage and Event Delegation 💾](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/LocalStorage%20and%20Event%20Delegation%20Day%2015/index.html)
+15. [LocalStorage and Event Delegation 💾](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/LocalStorage%20and%20Event%20Delegation%20Day%2015/indexReview.html)
 16. [Mouse Move Shadow 🌈](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/CSS%20Mouse%20Move%20Effect%20Day%2016/index.html)
 17. [Sort Without Articles 📚](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Sorting%20Band%20Without%20Articles%20Day%2017/index.html)
 18. [Adding Up Times with Reduce ⏳](https://miraclemark35.github.io/JavascriptJourney/Javascript%2030/Adding%20Up%20Times%20with%20Reduce%20Day%2018/index.html)
